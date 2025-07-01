@@ -1,0 +1,10 @@
+fastapi                 # Framework para APIs web
+uvicorn[standard]       # Servidor ASGI para rodar o FastAPI
+pandas                  # Manipulação de dados em tabelas
+numpy                   # Computação numérica
+scikit-learn            # Machine learning
+matplotlib              # Gráficos
+seaborn                 # Visualização estatística
+plotly                  # Gráficos interativos (usado no frontend também)
+python-dotenv           # Carrega variáveis do .env
+requests                # Realiza chamadas HTTP (ex: API de criptomoedas)
