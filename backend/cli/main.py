@@ -1,4 +1,17 @@
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 import argparse
+import logging
+
+from core.data_load import download_crypto_data
+
+
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 def main():
     parser = argparse.ArgumentParser(
@@ -32,7 +45,17 @@ def main():
 
     args = parser.parse_args()
 
-    print(f"Rodando pipeline para {args.crypto} usando modelo {args.model} com {args.kfolds} folds...")
+    logger.info(
+        f"Rodando pipeline para {args.crypto}usando modelo {args.model} " 
+        f"com {args.kfolds} folds..."
+    )
+
+    df = download_crypto_data(args.crypto)
+
+    if df is not None:
+        logger.info(f"\n{df.head()}")
+    else:
+        logger.error("Falha ao carregar os dados.")
 
 if __name__ == "__main__":
     main()
