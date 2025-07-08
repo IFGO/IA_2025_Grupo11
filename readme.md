@@ -64,10 +64,10 @@ Parâmetro	Descrição
 --model	Modelo preditivo: mlp, linear, poly
 --kfolds	Número de folds para validação cruzada
 
-✅ Saídas Geradas
+✅ Saídas Geradas 
 📈 Gráficos e estatísticas: analysis_results/
 
-📊 Features e métricas: backend/data/
+📊 Features e métricas: backend/data/ 
 
-📝 Observação
+📝 Observação 
 Este projeto foi desenvolvido para fins acadêmicos, com foco em pipelines automatizados de previsão de preços de criptomoedas.
