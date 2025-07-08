@@ -57,17 +57,23 @@ Execução:
 python backend/cli/main.py --crypto BTCUSDT ETHUSDT DOGEUSDT ADAUSDT \
 --feature-set all --model mlp --kfolds 5
 ```
-Explicação dos parâmetros:
-Parâmetro	Descrição
---crypto	Lista de criptomoedas a processar
---feature-set	Conjunto de features: basic, rolling, technical, all
---model	Modelo preditivo: mlp, linear, poly
---kfolds	Número de folds para validação cruzada
+### 📄 Explicação dos parâmetros:
 
-✅ Saídas Geradas 
-📈 Gráficos e estatísticas: analysis_results/
+| Parâmetro     | Descrição                                            |
+|---------------|------------------------------------------------------|
+| `--crypto`    | Lista de criptomoedas a processar                    |
+| `--feature-set` | Conjunto de features: `basic`, `rolling`, `technical`, `all` |
+| `--model`     | Modelo preditivo: `mlp`, `linear`, `poly`            |
+| `--kfolds`    | Número de folds para validação cruzada               |
 
-📊 Features e métricas: backend/data/ 
+---
 
-📝 Observação 
+### ✅ Saídas Geradas:
+
+- 📈 Gráficos e estatísticas: `analysis_results/`
+- 📊 Features e métricas: `backend/data/`
+
+---
+
+### 📝 Observação:
 Este projeto foi desenvolvido para fins acadêmicos, com foco em pipelines automatizados de previsão de preços de criptomoedas.
