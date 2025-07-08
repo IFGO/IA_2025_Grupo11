@@ -12,6 +12,7 @@ from core.analysis import (
     basic_statistics, correlation_analysis,
     plot_boxplot, plot_histogram, plot_price_over_time
 )
+from core.models import train_and_evaluate_model
 
 
 logging.basicConfig(level=logging.INFO)
@@ -82,7 +83,13 @@ def main():
         plot_histogram(df, symbol)
         plot_price_over_time(df, symbol)
 
-        # (Futuro) Treinamento de modelos também será incluído aqui.
+        # Treinamento e avaliação do modelo
+        results_df = train_and_evaluate_model(features_df, model_type=args.model, kfolds=args.kfolds)
+
+        # Salva as métricas de avaliação por fold
+        results_path = f"backend/data/metrics_{symbol}.csv"
+        results_df.to_csv(results_path, index=False)
+        logger.info(f"Métricas de avaliação salvas em: {results_path}")
 
     dfs_dict = {symbol: download_crypto_data(symbol) for symbol in args.crypto}
     correlation_analysis(dfs_dict)
