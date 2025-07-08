@@ -23,24 +23,23 @@ Projeto de Machine Learning para análise e predição de preços de criptomoeda
 
 ## 📂 Estrutura do Projeto
 
+## 📂 Estrutura do Projeto
+
+```plaintext
 crypto-predictor/
 │
 ├── backend/
-│ ├── cli/ # CLI principal do pipeline
-│ ├── core/ # Módulos do pipeline (data_load, features, models, analysis)
-│ └── data/ # CSVs de features e métricas gerados automaticamente
+│   ├── cli/                     # CLI principal do pipeline
+│   ├── core/                    # Módulos do pipeline (data_load, features, models, analysis)
+│   └── data/                    # CSVs de features e métricas gerados automaticamente
 │
-├── analysis_results/ # Relatórios e gráficos gerados automaticamente
+├── analysis_results/            # Relatórios e gráficos gerados automaticamente
 │
-├── frontend/ # (Opcional) Interface web em React (não obrigatório no trabalho)
+├── frontend/                    # (Opcional) Interface web em React (não obrigatório no trabalho)
 │
-├── docker-compose.yml # (Opcional) Configuração Docker
+├── docker-compose.yml           # (Opcional) Configuração Docker
 │
-└── readme.md # Este arquivo
-
-yaml
-Copiar
-Editar
+└── readme.md                    # Este arquivo
 
 ---
 
@@ -63,6 +62,7 @@ Parâmetro	Descrição
 --feature-set	Conjunto de features: basic, rolling, technical, all
 --model	Modelo preditivo: mlp, linear, poly
 --kfolds	Número de folds para validação cruzada
+```
 
 ✅ Saídas Geradas
 📈 Gráficos e estatísticas: analysis_results/
