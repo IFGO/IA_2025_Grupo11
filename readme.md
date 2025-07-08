@@ -73,6 +73,7 @@ python backend/cli/main.py --crypto BTCUSDT ETHUSDT DOGEUSDT ADAUSDT \
 
 - 📈 Gráficos e estatísticas: `analysis_results/`
 - 📊 Features e métricas: `backend/data/`
+- 📊 Relatório final em HTML: `backend/reports/`
 
 ---
 
