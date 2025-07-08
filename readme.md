@@ -40,6 +40,7 @@ crypto-predictor/
 ├── docker-compose.yml           # (Opcional) Configuração Docker
 │
 └── readme.md                    # Este arquivo
+```
 
 ---
 
@@ -50,19 +51,18 @@ crypto-predictor/
 - Instalar dependências:
 ```bash
 pip install -r requirements.txt
+```
 Execução:
-bash
-Copiar
-Editar
+```bash
 python backend/cli/main.py --crypto BTCUSDT ETHUSDT DOGEUSDT ADAUSDT \
 --feature-set all --model mlp --kfolds 5
+```
 Explicação dos parâmetros:
 Parâmetro	Descrição
 --crypto	Lista de criptomoedas a processar
 --feature-set	Conjunto de features: basic, rolling, technical, all
 --model	Modelo preditivo: mlp, linear, poly
 --kfolds	Número de folds para validação cruzada
-```
 
 ✅ Saídas Geradas
 📈 Gráficos e estatísticas: analysis_results/
