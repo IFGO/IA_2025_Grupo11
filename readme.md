@@ -31,7 +31,8 @@ crypto-predictor/
 ├── backend/
 │   ├── cli/                     # CLI principal do pipeline
 │   ├── core/                    # Módulos do pipeline (data_load, features, models, analysis)
-│   └── data/                    # CSVs de features e métricas gerados automaticamente
+│   ├── data/                    # CSVs de features e métricas gerados automaticamente
+│   └── reports/                 # Relatório em HTML para as criptos
 │
 ├── analysis_results/            # Relatórios e gráficos gerados automaticamente
 │
