@@ -1,0 +1,260 @@
+
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Relatório de Análise de Criptomoedas</title>
+        <link rel="stylesheet" href="tailwind.min.css">
+    </head>
+    <body class="bg-gray-100 text-gray-900">
+        <div class="max-w-6xl mx-auto p-8">
+            <h1 class="text-4xl font-bold mb-8">📊 Relatório de Análise de Criptomoedas</h1>
+    
+        <section class="mb-16">
+            <h2 class="text-2xl font-semibold mb-4">BTCUSDT</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-semibold mb-2">Boxplot</h3>
+                    <img src="../analysis_results/boxplot_BTCUSDT.png" alt="Boxplot BTCUSDT">
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2">Histograma</h3>
+                    <img src="../analysis_results/histograma_BTCUSDT.png" alt="Histograma BTCUSDT">
+                </div>
+                <div class="col-span-2">
+                    <h3 class="font-semibold mb-2">Gráfico de Linha (Preço + Média + Mediana + Moda)</h3>
+                    <img src="../analysis_results/grafico_linha_BTCUSDT.png" alt="Gráfico de Linha BTCUSDT">
+                </div>
+            </div>
+
+            <h3 class="font-semibold mt-8 mb-2">Métricas de Modelagem (por Fold)</h3>
+        <table border="1" class="dataframe table-auto border border-gray-300">
+  <thead>
+    <tr style="text-align: right;">
+      <th>MSE</th>
+      <th>MAE</th>
+      <th>R2</th>
+      <th>fold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1.315337e+11</td>
+      <td>220191.947578</td>
+      <td>-162.163590</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1.142049e+11</td>
+      <td>196487.055432</td>
+      <td>-165.380548</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>6.934052e+10</td>
+      <td>161749.242315</td>
+      <td>-86.162068</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>1.633609e+11</td>
+      <td>244902.822480</td>
+      <td>-253.153940</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>5.956161e+10</td>
+      <td>147287.513254</td>
+      <td>-71.644443</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table></section>
+        <section class="mb-16">
+            <h2 class="text-2xl font-semibold mb-4">ETHUSDT</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-semibold mb-2">Boxplot</h3>
+                    <img src="../analysis_results/boxplot_ETHUSDT.png" alt="Boxplot ETHUSDT">
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2">Histograma</h3>
+                    <img src="../analysis_results/histograma_ETHUSDT.png" alt="Histograma ETHUSDT">
+                </div>
+                <div class="col-span-2">
+                    <h3 class="font-semibold mb-2">Gráfico de Linha (Preço + Média + Mediana + Moda)</h3>
+                    <img src="../analysis_results/grafico_linha_ETHUSDT.png" alt="Gráfico de Linha ETHUSDT">
+                </div>
+            </div>
+
+            <h3 class="font-semibold mt-8 mb-2">Métricas de Modelagem (por Fold)</h3>
+        <table border="1" class="dataframe table-auto border border-gray-300">
+  <thead>
+    <tr style="text-align: right;">
+      <th>MSE</th>
+      <th>MAE</th>
+      <th>R2</th>
+      <th>fold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4.638805e+10</td>
+      <td>107763.350459</td>
+      <td>-32448.866480</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2.507531e+10</td>
+      <td>93862.983453</td>
+      <td>-16940.365464</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>5.807087e+10</td>
+      <td>145990.663351</td>
+      <td>-39534.531281</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>2.332488e+09</td>
+      <td>29979.221303</td>
+      <td>-1614.552436</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>3.118936e+11</td>
+      <td>348876.356999</td>
+      <td>-197708.720420</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table></section>
+        <section class="mb-16">
+            <h2 class="text-2xl font-semibold mb-4">DOGEUSDT</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-semibold mb-2">Boxplot</h3>
+                    <img src="../analysis_results/boxplot_DOGEUSDT.png" alt="Boxplot DOGEUSDT">
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2">Histograma</h3>
+                    <img src="../analysis_results/histograma_DOGEUSDT.png" alt="Histograma DOGEUSDT">
+                </div>
+                <div class="col-span-2">
+                    <h3 class="font-semibold mb-2">Gráfico de Linha (Preço + Média + Mediana + Moda)</h3>
+                    <img src="../analysis_results/grafico_linha_DOGEUSDT.png" alt="Gráfico de Linha DOGEUSDT">
+                </div>
+            </div>
+
+            <h3 class="font-semibold mt-8 mb-2">Métricas de Modelagem (por Fold)</h3>
+        <table border="1" class="dataframe table-auto border border-gray-300">
+  <thead>
+    <tr style="text-align: right;">
+      <th>MSE</th>
+      <th>MAE</th>
+      <th>R2</th>
+      <th>fold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>5.158153e+12</td>
+      <td>4.426332e+05</td>
+      <td>-5.045114e+14</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1.113849e+14</td>
+      <td>5.236445e+06</td>
+      <td>-1.139955e+16</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>7.560890e+12</td>
+      <td>8.181342e+05</td>
+      <td>-6.799457e+14</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>9.708062e+12</td>
+      <td>1.015880e+06</td>
+      <td>-8.032046e+14</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>1.901249e+14</td>
+      <td>6.119843e+06</td>
+      <td>-1.722919e+16</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table></section>
+        <section class="mb-16">
+            <h2 class="text-2xl font-semibold mb-4">ADAUSDT</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-semibold mb-2">Boxplot</h3>
+                    <img src="../analysis_results/boxplot_ADAUSDT.png" alt="Boxplot ADAUSDT">
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2">Histograma</h3>
+                    <img src="../analysis_results/histograma_ADAUSDT.png" alt="Histograma ADAUSDT">
+                </div>
+                <div class="col-span-2">
+                    <h3 class="font-semibold mb-2">Gráfico de Linha (Preço + Média + Mediana + Moda)</h3>
+                    <img src="../analysis_results/grafico_linha_ADAUSDT.png" alt="Gráfico de Linha ADAUSDT">
+                </div>
+            </div>
+
+            <h3 class="font-semibold mt-8 mb-2">Métricas de Modelagem (por Fold)</h3>
+        <table border="1" class="dataframe table-auto border border-gray-300">
+  <thead>
+    <tr style="text-align: right;">
+      <th>MSE</th>
+      <th>MAE</th>
+      <th>R2</th>
+      <th>fold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>6.146203e+09</td>
+      <td>48816.534340</td>
+      <td>-2.124821e+10</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>8.403842e+09</td>
+      <td>45376.933275</td>
+      <td>-2.713692e+10</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>2.223509e+10</td>
+      <td>70006.038625</td>
+      <td>-7.359845e+10</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>8.868352e+09</td>
+      <td>44767.097990</td>
+      <td>-3.488498e+10</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>6.873381e+09</td>
+      <td>50215.403347</td>
+      <td>-2.384960e+10</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table></section>
+        </div>
+    </body>
+    </html>
+    

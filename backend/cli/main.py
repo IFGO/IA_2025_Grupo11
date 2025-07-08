@@ -13,6 +13,7 @@ from core.analysis import (
     plot_boxplot, plot_histogram, plot_price_over_time
 )
 from core.models import train_and_evaluate_model
+from core.report import generate_html_report
 
 
 logging.basicConfig(level=logging.INFO)
@@ -93,6 +94,10 @@ def main():
 
     dfs_dict = {symbol: download_crypto_data(symbol) for symbol in args.crypto}
     correlation_analysis(dfs_dict)
+
+    generate_html_report(args.crypto)
+
+
 
 if __name__ == "__main__":
     main()
