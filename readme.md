@@ -32,7 +32,8 @@ crypto-predictor/
 │   ├── cli/                     # CLI principal do pipeline
 │   ├── core/                    # Módulos do pipeline (data_load, features, models, analysis)
 │   ├── data/                    # CSVs de features e métricas gerados automaticamente
-│   └── reports/                 # Relatório em HTML para as criptos
+│   ├── reports/                 # Relatório em HTML para as criptos
+|   └── tests/                   # Testes unitários
 │
 ├── analysis_results/            # Relatórios e gráficos gerados automaticamente
 │
@@ -53,7 +54,12 @@ crypto-predictor/
 ```bash
 pip install -r requirements.txt
 ```
-Execução:
+- Testes
+```bash
+cd backend
+pytest --cov=core --cov-report=term-missing
+```
+- Execução:
 ```bash
 python backend/cli/main.py --crypto BTCUSDT ETHUSDT DOGEUSDT ADAUSDT \
 --feature-set all --model mlp --kfolds 5

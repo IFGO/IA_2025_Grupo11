@@ -10,7 +10,8 @@ logger = logging.getLogger(__name__)
 
 def download_crypto_data(
         symbol: str,
-        base_url: str = "https://www.cryptodatadownload.com/cdd/"
+        base_url: str = "https://www.cryptodatadownload.com/cdd/",
+        save_dir: Optional[str] = None
 ) -> Optional[pd.DataFrame]:
     """
     Baixa e carrega o CSV da criptomoeda especificada.
@@ -18,17 +19,21 @@ def download_crypto_data(
     Args:
         symbol: Símbolo da criptomoeda (ex: 'BTCUSDT')
         base_url: URL base do dataset da CryptoDataDownload.
+        save_dir: Diretório onde o arquivo CSV será salvo (útil para testes).
 
     Returns:
         DataFrame com os dados de preço ou None se falhar.
     """
     url = f"{base_url}Binance_{symbol}_d.csv"
-    local_file = os.path.join(
-        os.path.dirname(__file__),
-        "..", "..",
-        "data", f"{symbol}.csv"
-    )
-    local_file = os.path.abspath(local_file)
+
+    if save_dir:
+        local_file = os.path.join(save_dir, f"{symbol}.csv")
+    else:
+        local_file = os.path.join(
+            os.path.dirname(__file__),
+            "..", "..", "data", f"{symbol}.csv"
+        )
+        local_file = os.path.abspath(local_file)
 
     try:
         logger.info(f"Baixando dados de {url}")
