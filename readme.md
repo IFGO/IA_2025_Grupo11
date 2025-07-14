@@ -61,8 +61,7 @@ pytest --cov=core --cov-report=term-missing
 ```
 - Execução:
 ```bash
-python backend/cli/main.py --crypto BTCUSDT ETHUSDT DOGEUSDT ADAUSDT \
---feature-set all --model mlp --kfolds 5
+python backend/cli/main.py --crypto BTCUSDT ETHUSDT DOGEUSDT ADAUSDT BNBUSDT XRPUSDT LTCUSDT LINKUSDT SOLUSDT MATICUSDT --feature-set all --model mlp --kfolds 5
 ```
 ### 📄 Explicação dos parâmetros:
 
