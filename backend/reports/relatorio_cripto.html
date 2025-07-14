@@ -5,15 +5,63 @@
         <meta charset="UTF-8">
         <title>Relatório de Análise de Criptomoedas</title>
         <style>
-            body { font-family: sans-serif; background-color: #f7fafc; color: #1a202c; margin: 0; padding: 2rem; }
-            h1 { font-size: 2rem; font-weight: bold; margin-bottom: 2rem; }
-            h2 { font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem; }
-            h3 { font-weight: bold; margin-top: 1rem; }
-            table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
-            th, td { border: 1px solid #cbd5e0; padding: 0.5rem; text-align: center; }
-            th { background-color: #edf2f7; }
-            img { max-width: 100%; height: auto; border: 1px solid #e2e8f0; margin-top: 0.5rem; }
-            section { margin-bottom: 4rem; }
+            body {
+                font-family: sans-serif;
+                background-color: #f7fafc;
+                color: #1a202c;
+                margin: 0;
+                padding: 2rem;
+                text-align: center;
+            }
+            h1 {
+                font-size: 2rem;
+                font-weight: bold;
+                margin-bottom: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin: 2rem 0 1rem;
+            }
+            h3 {
+                font-weight: bold;
+                margin-top: 1rem;
+            }
+            table {
+                margin: 1rem auto;
+                width: 80%;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid #cbd5e0;
+                padding: 0.5rem;
+                text-align: center;
+            }
+            th {
+                background-color: #edf2f7;
+            }
+            img {
+                max-width: 90%;
+                height: auto;
+                border: 1px solid #e2e8f0;
+                margin: 0.5rem 0;
+            }
+            section {
+                margin-bottom: 4rem;
+                padding: 1rem;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+                background-color: #fff;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+                justify-items: center;
+            }
         </style>
     </head>
     <body>
@@ -22,7 +70,7 @@
         <section>
             <h2>BTCUSDT</h2>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <div class="grid">
                 <div>
                     <h3>Boxplot</h3>
                     <img src="../analysis_results/boxplot_BTCUSDT.png" alt="Boxplot BTCUSDT">
@@ -85,11 +133,32 @@
       <td>5</td>
     </tr>
   </tbody>
+</table><h3>Resultado do Teste de Hipótese (Retorno Esperado)</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Crypto</th>
+      <th>t-Statistic</th>
+      <th>p-Value (one-sided)</th>
+      <th>Mean Return %</th>
+      <th>Expected Return %</th>
+      <th>Reject H0?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BTCUSDT</td>
+      <td>-18.37427</td>
+      <td>1.118880e-71</td>
+      <td>0.054734</td>
+      <td>1.0</td>
+      <td>False</td>
+    </tr>
+  </tbody>
 </table></section>
         <section>
             <h2>ETHUSDT</h2>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <div class="grid">
                 <div>
                     <h3>Boxplot</h3>
                     <img src="../analysis_results/boxplot_ETHUSDT.png" alt="Boxplot ETHUSDT">
@@ -152,11 +221,32 @@
       <td>5</td>
     </tr>
   </tbody>
+</table><h3>Resultado do Teste de Hipótese (Retorno Esperado)</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Crypto</th>
+      <th>t-Statistic</th>
+      <th>p-Value (one-sided)</th>
+      <th>Mean Return %</th>
+      <th>Expected Return %</th>
+      <th>Reject H0?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ETHUSDT</td>
+      <td>-19.477219</td>
+      <td>9.277010e-80</td>
+      <td>0.04626</td>
+      <td>1.0</td>
+      <td>False</td>
+    </tr>
+  </tbody>
 </table></section>
         <section>
             <h2>DOGEUSDT</h2>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <div class="grid">
                 <div>
                     <h3>Boxplot</h3>
                     <img src="../analysis_results/boxplot_DOGEUSDT.png" alt="Boxplot DOGEUSDT">
@@ -219,11 +309,32 @@
       <td>5</td>
     </tr>
   </tbody>
+</table><h3>Resultado do Teste de Hipótese (Retorno Esperado)</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Crypto</th>
+      <th>t-Statistic</th>
+      <th>p-Value (one-sided)</th>
+      <th>Mean Return %</th>
+      <th>Expected Return %</th>
+      <th>Reject H0?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DOGEUSDT</td>
+      <td>-20.728109</td>
+      <td>1.427183e-87</td>
+      <td>-0.002105</td>
+      <td>1.0</td>
+      <td>False</td>
+    </tr>
+  </tbody>
 </table></section>
         <section>
             <h2>ADAUSDT</h2>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <div class="grid">
                 <div>
                     <h3>Boxplot</h3>
                     <img src="../analysis_results/boxplot_ADAUSDT.png" alt="Boxplot ADAUSDT">
@@ -284,6 +395,987 @@
       <td>50631.545798</td>
       <td>-3.216104e+10</td>
       <td>5</td>
+    </tr>
+  </tbody>
+</table><h3>Resultado do Teste de Hipótese (Retorno Esperado)</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Crypto</th>
+      <th>t-Statistic</th>
+      <th>p-Value (one-sided)</th>
+      <th>Mean Return %</th>
+      <th>Expected Return %</th>
+      <th>Reject H0?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ADAUSDT</td>
+      <td>-10.969968</td>
+      <td>1.037930e-27</td>
+      <td>0.166302</td>
+      <td>1.0</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table></section>
+        <section>
+            <h2>BNBUSDT</h2>
+
+            <div class="grid">
+                <div>
+                    <h3>Boxplot</h3>
+                    <img src="../analysis_results/boxplot_BNBUSDT.png" alt="Boxplot BNBUSDT">
+                </div>
+                <div>
+                    <h3>Histograma</h3>
+                    <img src="../analysis_results/histograma_BNBUSDT.png" alt="Histograma BNBUSDT">
+                </div>
+            </div>
+
+            <div>
+                <h3>Gráfico de Linha (Preço + Média + Mediana + Moda)</h3>
+                <img src="../analysis_results/grafico_linha_BNBUSDT.png" alt="Gráfico de Linha BNBUSDT">
+            </div>
+
+            <div>
+                <h3>Lucro Simulado</h3>
+                <img src="../data/lucro_BNBUSDT.png" alt="Lucro BNBUSDT">
+            </div>
+
+            <h3>Métricas de Modelagem (por Fold)</h3>
+        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>MSE</th>
+      <th>MAE</th>
+      <th>R2</th>
+      <th>fold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1.567484e+09</td>
+      <td>26909.459985</td>
+      <td>-3.105825e+04</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1.409804e+10</td>
+      <td>58917.152168</td>
+      <td>-2.723707e+05</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>6.011574e+11</td>
+      <td>433625.320889</td>
+      <td>-1.086036e+07</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>2.371482e+11</td>
+      <td>243235.499893</td>
+      <td>-4.535661e+06</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>6.544214e+10</td>
+      <td>159544.981806</td>
+      <td>-1.181137e+06</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table><h3>Resultado do Teste de Hipótese (Retorno Esperado)</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Crypto</th>
+      <th>t-Statistic</th>
+      <th>p-Value (one-sided)</th>
+      <th>Mean Return %</th>
+      <th>Expected Return %</th>
+      <th>Reject H0?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BNBUSDT</td>
+      <td>-10.87665</td>
+      <td>2.575420e-27</td>
+      <td>0.113155</td>
+      <td>1.0</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table></section>
+        <section>
+            <h2>XRPUSDT</h2>
+
+            <div class="grid">
+                <div>
+                    <h3>Boxplot</h3>
+                    <img src="../analysis_results/boxplot_XRPUSDT.png" alt="Boxplot XRPUSDT">
+                </div>
+                <div>
+                    <h3>Histograma</h3>
+                    <img src="../analysis_results/histograma_XRPUSDT.png" alt="Histograma XRPUSDT">
+                </div>
+            </div>
+
+            <div>
+                <h3>Gráfico de Linha (Preço + Média + Mediana + Moda)</h3>
+                <img src="../analysis_results/grafico_linha_XRPUSDT.png" alt="Gráfico de Linha XRPUSDT">
+            </div>
+
+            <div>
+                <h3>Lucro Simulado</h3>
+                <img src="../data/lucro_XRPUSDT.png" alt="Lucro XRPUSDT">
+            </div>
+
+            <h3>Métricas de Modelagem (por Fold)</h3>
+        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>MSE</th>
+      <th>MAE</th>
+      <th>R2</th>
+      <th>fold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3.608335e+10</td>
+      <td>96715.153218</td>
+      <td>-1.163602e+11</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1.893620e+11</td>
+      <td>187625.415191</td>
+      <td>-5.277299e+11</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>2.114760e+10</td>
+      <td>74284.393075</td>
+      <td>-6.367503e+10</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>3.787621e+10</td>
+      <td>116255.150962</td>
+      <td>-1.235696e+11</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>9.156406e+10</td>
+      <td>88353.481414</td>
+      <td>-2.206074e+11</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table><h3>Resultado do Teste de Hipótese (Retorno Esperado)</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Crypto</th>
+      <th>t-Statistic</th>
+      <th>p-Value (one-sided)</th>
+      <th>Mean Return %</th>
+      <th>Expected Return %</th>
+      <th>Reject H0?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>XRPUSDT</td>
+      <td>-17.52229</td>
+      <td>2.227894e-65</td>
+      <td>-0.022155</td>
+      <td>1.0</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table></section>
+        <section>
+            <h2>LTCUSDT</h2>
+
+            <div class="grid">
+                <div>
+                    <h3>Boxplot</h3>
+                    <img src="../analysis_results/boxplot_LTCUSDT.png" alt="Boxplot LTCUSDT">
+                </div>
+                <div>
+                    <h3>Histograma</h3>
+                    <img src="../analysis_results/histograma_LTCUSDT.png" alt="Histograma LTCUSDT">
+                </div>
+            </div>
+
+            <div>
+                <h3>Gráfico de Linha (Preço + Média + Mediana + Moda)</h3>
+                <img src="../analysis_results/grafico_linha_LTCUSDT.png" alt="Gráfico de Linha LTCUSDT">
+            </div>
+
+            <div>
+                <h3>Lucro Simulado</h3>
+                <img src="../data/lucro_LTCUSDT.png" alt="Lucro LTCUSDT">
+            </div>
+
+            <h3>Métricas de Modelagem (por Fold)</h3>
+        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>MSE</th>
+      <th>MAE</th>
+      <th>R2</th>
+      <th>fold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>5.624948e+10</td>
+      <td>125867.084426</td>
+      <td>-2.384955e+07</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>5.047500e+09</td>
+      <td>52895.042331</td>
+      <td>-1.744130e+06</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>1.688545e+09</td>
+      <td>24891.140752</td>
+      <td>-6.246376e+05</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>3.058796e+09</td>
+      <td>18943.116230</td>
+      <td>-1.122475e+06</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>1.707631e+10</td>
+      <td>83198.821014</td>
+      <td>-6.912561e+06</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table><h3>Resultado do Teste de Hipótese (Retorno Esperado)</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Crypto</th>
+      <th>t-Statistic</th>
+      <th>p-Value (one-sided)</th>
+      <th>Mean Return %</th>
+      <th>Expected Return %</th>
+      <th>Reject H0?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LTCUSDT</td>
+      <td>-inf</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table></section>
+        <section>
+            <h2>LINKUSDT</h2>
+
+            <div class="grid">
+                <div>
+                    <h3>Boxplot</h3>
+                    <img src="../analysis_results/boxplot_LINKUSDT.png" alt="Boxplot LINKUSDT">
+                </div>
+                <div>
+                    <h3>Histograma</h3>
+                    <img src="../analysis_results/histograma_LINKUSDT.png" alt="Histograma LINKUSDT">
+                </div>
+            </div>
+
+            <div>
+                <h3>Gráfico de Linha (Preço + Média + Mediana + Moda)</h3>
+                <img src="../analysis_results/grafico_linha_LINKUSDT.png" alt="Gráfico de Linha LINKUSDT">
+            </div>
+
+            <div>
+                <h3>Lucro Simulado</h3>
+                <img src="../data/lucro_LINKUSDT.png" alt="Lucro LINKUSDT">
+            </div>
+
+            <h3>Métricas de Modelagem (por Fold)</h3>
+        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>MSE</th>
+      <th>MAE</th>
+      <th>R2</th>
+      <th>fold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4.576562e+08</td>
+      <td>12696.278462</td>
+      <td>-5.545583e+06</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2.045976e+08</td>
+      <td>8872.489623</td>
+      <td>-2.906817e+06</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>5.367481e+08</td>
+      <td>12790.263569</td>
+      <td>-7.165873e+06</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>2.900658e+08</td>
+      <td>9371.706071</td>
+      <td>-3.624498e+06</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>2.679862e+08</td>
+      <td>9951.154841</td>
+      <td>-3.380761e+06</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table><h3>Resultado do Teste de Hipótese (Retorno Esperado)</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Crypto</th>
+      <th>t-Statistic</th>
+      <th>p-Value (one-sided)</th>
+      <th>Mean Return %</th>
+      <th>Expected Return %</th>
+      <th>Reject H0?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LINKUSDT</td>
+      <td>-8.83015</td>
+      <td>9.994243e-19</td>
+      <td>0.184376</td>
+      <td>1.0</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table></section>
+        <section>
+            <h2>SOLUSDT</h2>
+
+            <div class="grid">
+                <div>
+                    <h3>Boxplot</h3>
+                    <img src="../analysis_results/boxplot_SOLUSDT.png" alt="Boxplot SOLUSDT">
+                </div>
+                <div>
+                    <h3>Histograma</h3>
+                    <img src="../analysis_results/histograma_SOLUSDT.png" alt="Histograma SOLUSDT">
+                </div>
+            </div>
+
+            <div>
+                <h3>Gráfico de Linha (Preço + Média + Mediana + Moda)</h3>
+                <img src="../analysis_results/grafico_linha_SOLUSDT.png" alt="Gráfico de Linha SOLUSDT">
+            </div>
+
+            <div>
+                <h3>Lucro Simulado</h3>
+                <img src="../data/lucro_SOLUSDT.png" alt="Lucro SOLUSDT">
+            </div>
+
+            <h3>Métricas de Modelagem (por Fold)</h3>
+        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>MSE</th>
+      <th>MAE</th>
+      <th>R2</th>
+      <th>fold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>8.310865e+10</td>
+      <td>187361.142248</td>
+      <td>-1.658449e+07</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1.786466e+10</td>
+      <td>79397.310756</td>
+      <td>-3.682044e+06</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>2.540711e+10</td>
+      <td>74335.654955</td>
+      <td>-5.172627e+06</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>1.987027e+10</td>
+      <td>73874.752368</td>
+      <td>-3.997628e+06</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>9.351233e+10</td>
+      <td>168125.482502</td>
+      <td>-1.863443e+07</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table><h3>Resultado do Teste de Hipótese (Retorno Esperado)</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Crypto</th>
+      <th>t-Statistic</th>
+      <th>p-Value (one-sided)</th>
+      <th>Mean Return %</th>
+      <th>Expected Return %</th>
+      <th>Reject H0?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SOLUSDT</td>
+      <td>-4.930467</td>
+      <td>4.483119e-07</td>
+      <td>0.312611</td>
+      <td>1.0</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table></section>
+        <section>
+            <h2>MATICUSDT</h2>
+
+            <div class="grid">
+                <div>
+                    <h3>Boxplot</h3>
+                    <img src="../analysis_results/boxplot_MATICUSDT.png" alt="Boxplot MATICUSDT">
+                </div>
+                <div>
+                    <h3>Histograma</h3>
+                    <img src="../analysis_results/histograma_MATICUSDT.png" alt="Histograma MATICUSDT">
+                </div>
+            </div>
+
+            <div>
+                <h3>Gráfico de Linha (Preço + Média + Mediana + Moda)</h3>
+                <img src="../analysis_results/grafico_linha_MATICUSDT.png" alt="Gráfico de Linha MATICUSDT">
+            </div>
+
+            <div>
+                <h3>Lucro Simulado</h3>
+                <img src="../data/lucro_MATICUSDT.png" alt="Lucro MATICUSDT">
+            </div>
+
+            <h3>Métricas de Modelagem (por Fold)</h3>
+        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>MSE</th>
+      <th>MAE</th>
+      <th>R2</th>
+      <th>fold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4.750727e+10</td>
+      <td>132911.049101</td>
+      <td>-1.381098e+11</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2.234459e+10</td>
+      <td>64016.295139</td>
+      <td>-6.888354e+10</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>1.483532e+10</td>
+      <td>57996.337974</td>
+      <td>-4.214846e+10</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>1.966211e+10</td>
+      <td>57865.276475</td>
+      <td>-5.108202e+10</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>5.407771e+10</td>
+      <td>91063.140178</td>
+      <td>-1.677734e+11</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table><h3>Resultado do Teste de Hipótese (Retorno Esperado)</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Crypto</th>
+      <th>t-Statistic</th>
+      <th>p-Value (one-sided)</th>
+      <th>Mean Return %</th>
+      <th>Expected Return %</th>
+      <th>Reject H0?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MATICUSDT</td>
+      <td>-4.180338</td>
+      <td>0.000015</td>
+      <td>0.426518</td>
+      <td>1.0</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table></section><section><h2>ANOVA - Comparação Entre Criptomoedas</h2><h3>Resultado da ANOVA (F-test)</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>F-statistic</th>
+      <th>p-value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1.300478</td>
+      <td>0.230564</td>
+    </tr>
+  </tbody>
+</table><h3>Post Hoc (Tukey HSD)</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>group1</th>
+      <th>group2</th>
+      <th>meandiff</th>
+      <th>p-adj</th>
+      <th>lower</th>
+      <th>upper</th>
+      <th>reject</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ADAUSDT</td>
+      <td>BNBUSDT</td>
+      <td>0.1679</td>
+      <td>0.9913</td>
+      <td>-0.3541</td>
+      <td>0.6898</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>ADAUSDT</td>
+      <td>BTCUSDT</td>
+      <td>-0.0016</td>
+      <td>1.0000</td>
+      <td>-0.5199</td>
+      <td>0.5168</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>ADAUSDT</td>
+      <td>DOGEUSDT</td>
+      <td>0.2934</td>
+      <td>0.8124</td>
+      <td>-0.2624</td>
+      <td>0.8491</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>ADAUSDT</td>
+      <td>ETHUSDT</td>
+      <td>0.0054</td>
+      <td>1.0000</td>
+      <td>-0.5130</td>
+      <td>0.5237</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>ADAUSDT</td>
+      <td>LINKUSDT</td>
+      <td>0.1316</td>
+      <td>0.9990</td>
+      <td>-0.4131</td>
+      <td>0.6764</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>ADAUSDT</td>
+      <td>LTCUSDT</td>
+      <td>-0.1021</td>
+      <td>0.9998</td>
+      <td>-0.6257</td>
+      <td>0.4216</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>ADAUSDT</td>
+      <td>MATICUSDT</td>
+      <td>0.3094</td>
+      <td>0.7921</td>
+      <td>-0.2642</td>
+      <td>0.8831</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>ADAUSDT</td>
+      <td>SOLUSDT</td>
+      <td>0.2370</td>
+      <td>0.9595</td>
+      <td>-0.3517</td>
+      <td>0.8258</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>ADAUSDT</td>
+      <td>XRPUSDT</td>
+      <td>0.0034</td>
+      <td>1.0000</td>
+      <td>-0.5271</td>
+      <td>0.5339</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>BNBUSDT</td>
+      <td>BTCUSDT</td>
+      <td>-0.1694</td>
+      <td>0.9891</td>
+      <td>-0.6799</td>
+      <td>0.3411</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>BNBUSDT</td>
+      <td>DOGEUSDT</td>
+      <td>0.1255</td>
+      <td>0.9994</td>
+      <td>-0.4229</td>
+      <td>0.6739</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>BNBUSDT</td>
+      <td>ETHUSDT</td>
+      <td>-0.1625</td>
+      <td>0.9919</td>
+      <td>-0.6730</td>
+      <td>0.3480</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>BNBUSDT</td>
+      <td>LINKUSDT</td>
+      <td>-0.0362</td>
+      <td>1.0000</td>
+      <td>-0.5735</td>
+      <td>0.5010</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>BNBUSDT</td>
+      <td>LTCUSDT</td>
+      <td>-0.2699</td>
+      <td>0.8202</td>
+      <td>-0.7858</td>
+      <td>0.2459</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>BNBUSDT</td>
+      <td>MATICUSDT</td>
+      <td>0.1416</td>
+      <td>0.9987</td>
+      <td>-0.4250</td>
+      <td>0.7081</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>BNBUSDT</td>
+      <td>SOLUSDT</td>
+      <td>0.0692</td>
+      <td>1.0000</td>
+      <td>-0.5127</td>
+      <td>0.6510</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>BNBUSDT</td>
+      <td>XRPUSDT</td>
+      <td>-0.1645</td>
+      <td>0.9926</td>
+      <td>-0.6873</td>
+      <td>0.3583</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>BTCUSDT</td>
+      <td>DOGEUSDT</td>
+      <td>0.2949</td>
+      <td>0.7889</td>
+      <td>-0.2501</td>
+      <td>0.8399</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>BTCUSDT</td>
+      <td>ETHUSDT</td>
+      <td>0.0069</td>
+      <td>1.0000</td>
+      <td>-0.4999</td>
+      <td>0.5138</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>BTCUSDT</td>
+      <td>LINKUSDT</td>
+      <td>0.1332</td>
+      <td>0.9987</td>
+      <td>-0.4006</td>
+      <td>0.6670</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>BTCUSDT</td>
+      <td>LTCUSDT</td>
+      <td>-0.1005</td>
+      <td>0.9998</td>
+      <td>-0.6127</td>
+      <td>0.4117</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>BTCUSDT</td>
+      <td>MATICUSDT</td>
+      <td>0.3110</td>
+      <td>0.7685</td>
+      <td>-0.2523</td>
+      <td>0.8743</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>BTCUSDT</td>
+      <td>SOLUSDT</td>
+      <td>0.2386</td>
+      <td>0.9529</td>
+      <td>-0.3401</td>
+      <td>0.8172</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>BTCUSDT</td>
+      <td>XRPUSDT</td>
+      <td>0.0049</td>
+      <td>1.0000</td>
+      <td>-0.5143</td>
+      <td>0.5242</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>DOGEUSDT</td>
+      <td>ETHUSDT</td>
+      <td>-0.2880</td>
+      <td>0.8115</td>
+      <td>-0.8330</td>
+      <td>0.2570</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>DOGEUSDT</td>
+      <td>LINKUSDT</td>
+      <td>-0.1617</td>
+      <td>0.9966</td>
+      <td>-0.7319</td>
+      <td>0.4084</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>DOGEUSDT</td>
+      <td>LTCUSDT</td>
+      <td>-0.3954</td>
+      <td>0.4055</td>
+      <td>-0.9454</td>
+      <td>0.1546</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>DOGEUSDT</td>
+      <td>MATICUSDT</td>
+      <td>0.0161</td>
+      <td>1.0000</td>
+      <td>-0.5818</td>
+      <td>0.6139</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>DOGEUSDT</td>
+      <td>SOLUSDT</td>
+      <td>-0.0563</td>
+      <td>1.0000</td>
+      <td>-0.6687</td>
+      <td>0.5560</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>DOGEUSDT</td>
+      <td>XRPUSDT</td>
+      <td>-0.2900</td>
+      <td>0.8240</td>
+      <td>-0.8465</td>
+      <td>0.2665</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>ETHUSDT</td>
+      <td>LINKUSDT</td>
+      <td>0.1263</td>
+      <td>0.9992</td>
+      <td>-0.4075</td>
+      <td>0.6600</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>ETHUSDT</td>
+      <td>LTCUSDT</td>
+      <td>-0.1074</td>
+      <td>0.9997</td>
+      <td>-0.6196</td>
+      <td>0.4048</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>ETHUSDT</td>
+      <td>MATICUSDT</td>
+      <td>0.3041</td>
+      <td>0.7914</td>
+      <td>-0.2592</td>
+      <td>0.8673</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>ETHUSDT</td>
+      <td>SOLUSDT</td>
+      <td>0.2317</td>
+      <td>0.9609</td>
+      <td>-0.3470</td>
+      <td>0.8103</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>ETHUSDT</td>
+      <td>XRPUSDT</td>
+      <td>-0.0020</td>
+      <td>1.0000</td>
+      <td>-0.5212</td>
+      <td>0.5172</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>LINKUSDT</td>
+      <td>LTCUSDT</td>
+      <td>-0.2337</td>
+      <td>0.9358</td>
+      <td>-0.7726</td>
+      <td>0.3052</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>LINKUSDT</td>
+      <td>MATICUSDT</td>
+      <td>0.1778</td>
+      <td>0.9944</td>
+      <td>-0.4099</td>
+      <td>0.7654</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>LINKUSDT</td>
+      <td>SOLUSDT</td>
+      <td>0.1054</td>
+      <td>0.9999</td>
+      <td>-0.4970</td>
+      <td>0.7078</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>LINKUSDT</td>
+      <td>XRPUSDT</td>
+      <td>-0.1283</td>
+      <td>0.9992</td>
+      <td>-0.6738</td>
+      <td>0.4173</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>LTCUSDT</td>
+      <td>MATICUSDT</td>
+      <td>0.4115</td>
+      <td>0.3943</td>
+      <td>-0.1566</td>
+      <td>0.9796</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>LTCUSDT</td>
+      <td>SOLUSDT</td>
+      <td>0.3391</td>
+      <td>0.7101</td>
+      <td>-0.2443</td>
+      <td>0.9225</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>LTCUSDT</td>
+      <td>XRPUSDT</td>
+      <td>0.1054</td>
+      <td>0.9998</td>
+      <td>-0.4190</td>
+      <td>0.6299</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>MATICUSDT</td>
+      <td>SOLUSDT</td>
+      <td>-0.0724</td>
+      <td>1.0000</td>
+      <td>-0.7011</td>
+      <td>0.5563</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>MATICUSDT</td>
+      <td>XRPUSDT</td>
+      <td>-0.3060</td>
+      <td>0.8039</td>
+      <td>-0.8805</td>
+      <td>0.2684</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>SOLUSDT</td>
+      <td>XRPUSDT</td>
+      <td>-0.2337</td>
+      <td>0.9634</td>
+      <td>-0.8232</td>
+      <td>0.3559</td>
+      <td>False</td>
     </tr>
   </tbody>
 </table></section>

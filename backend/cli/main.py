@@ -5,13 +5,16 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 import argparse
 import logging
+import pandas as pd
 
-from core.data_load import download_crypto_data
-from core.features import generate_features
 from core.analysis import (
     basic_statistics, correlation_analysis,
     plot_boxplot, plot_histogram, plot_price_over_time
 )
+from core.anova import run_anova
+from core.data_load import download_crypto_data
+from core.features import generate_features
+from core.hypothesis import test_return_hypothesis
 from core.models import train_and_evaluate_model
 from core.plots import plot_profit
 from core.profit import simulate_profit
@@ -54,12 +57,21 @@ def main():
         help="Número de folds para validação cruzada"
     )
 
+    parser.add_argument(
+        "--expected-return",
+        type=float,
+        default=1.0,
+        help="Retorno esperado (%) para o teste de hipótese (ex: 1.0 para 1%)"
+    )
+
     args = parser.parse_args()
 
     logger.info(
         f"Rodando pipeline para {args.crypto} usando modelo {args.model} "
         f"com {args.kfolds} folds..."
     )
+
+    hypothesis_results = []
 
     for symbol in args.crypto:
         logger.info(f"\nProcessando criptomoeda: {symbol}")
@@ -109,11 +121,26 @@ def main():
         plot_profit(features_df["profit"], symbol, profit_fig)
         logger.info(f"Gráfico de lucro salvo em {profit_fig}")
 
+        # Teste de hipótese
+        hypothesis_result = test_return_hypothesis(
+            features_df, expected_return=args.expected_return, symbol=symbol
+        )
+        hypothesis_results.append(hypothesis_result)
+        logger.info(f"Teste de hipótese realizado para {symbol}: {hypothesis_result}")
+
+    # Salva os resultados do teste de hipótese
+    hypothesis_df = pd.DataFrame(hypothesis_results)
+    hypothesis_df.to_csv("backend/data/hypothesis_results.csv", index=False)
+    logger.info("Resultados do teste de hipótese salvos em backend/data/hypothesis_results.csv")
+
+    # Correlação geral
     dfs_dict = {symbol: download_crypto_data(symbol) for symbol in args.crypto}
     correlation_analysis(dfs_dict)
 
-    generate_html_report(args.crypto)
+    run_anova(dfs_dict)
 
+    # Relatório final
+    generate_html_report(args.crypto)
 
 
 if __name__ == "__main__":

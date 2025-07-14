@@ -8,3 +8,4 @@ seaborn                 # Visualização estatística
 plotly                  # Gráficos interativos (usado no frontend também)
 python-dotenv           # Carrega variáveis do .env
 requests                # Realiza chamadas HTTP (ex: API de criptomoedas)
+statsmodels>=0.14
