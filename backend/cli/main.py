@@ -13,6 +13,8 @@ from core.analysis import (
     plot_boxplot, plot_histogram, plot_price_over_time
 )
 from core.models import train_and_evaluate_model
+from core.plots import plot_profit
+from core.profit import simulate_profit
 from core.report import generate_html_report
 
 
@@ -85,12 +87,27 @@ def main():
         plot_price_over_time(df, symbol)
 
         # Treinamento e avaliação do modelo
-        results_df = train_and_evaluate_model(features_df, model_type=args.model, kfolds=args.kfolds)
+        results_df, features_df = train_and_evaluate_model(
+            features_df, 
+            model_type=args.model, 
+            kfolds=args.kfolds, 
+            return_predictions=True
+        )
 
         # Salva as métricas de avaliação por fold
         results_path = f"backend/data/metrics_{symbol}.csv"
         results_df.to_csv(results_path, index=False)
         logger.info(f"Métricas de avaliação salvas em: {results_path}")
+
+        # Simula lucro e salva gráfico
+        features_df["profit"] = simulate_profit(features_df)
+
+        profit_dir = os.path.join("backend", "data")
+        os.makedirs(profit_dir, exist_ok=True)
+        profit_fig = os.path.join(profit_dir, f"lucro_{symbol}.png")
+
+        plot_profit(features_df["profit"], symbol, profit_fig)
+        logger.info(f"Gráfico de lucro salvo em {profit_fig}")
 
     dfs_dict = {symbol: download_crypto_data(symbol) for symbol in args.crypto}
     correlation_analysis(dfs_dict)

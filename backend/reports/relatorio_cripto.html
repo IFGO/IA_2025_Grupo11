@@ -4,32 +4,47 @@
     <head>
         <meta charset="UTF-8">
         <title>Relatório de Análise de Criptomoedas</title>
-        <link rel="stylesheet" href="tailwind.min.css">
+        <style>
+            body { font-family: sans-serif; background-color: #f7fafc; color: #1a202c; margin: 0; padding: 2rem; }
+            h1 { font-size: 2rem; font-weight: bold; margin-bottom: 2rem; }
+            h2 { font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem; }
+            h3 { font-weight: bold; margin-top: 1rem; }
+            table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+            th, td { border: 1px solid #cbd5e0; padding: 0.5rem; text-align: center; }
+            th { background-color: #edf2f7; }
+            img { max-width: 100%; height: auto; border: 1px solid #e2e8f0; margin-top: 0.5rem; }
+            section { margin-bottom: 4rem; }
+        </style>
     </head>
-    <body class="bg-gray-100 text-gray-900">
-        <div class="max-w-6xl mx-auto p-8">
-            <h1 class="text-4xl font-bold mb-8">📊 Relatório de Análise de Criptomoedas</h1>
+    <body>
+        <h1>📊 Relatório de Análise de Criptomoedas</h1>
     
-        <section class="mb-16">
-            <h2 class="text-2xl font-semibold mb-4">BTCUSDT</h2>
+        <section>
+            <h2>BTCUSDT</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                 <div>
-                    <h3 class="font-semibold mb-2">Boxplot</h3>
+                    <h3>Boxplot</h3>
                     <img src="../analysis_results/boxplot_BTCUSDT.png" alt="Boxplot BTCUSDT">
                 </div>
                 <div>
-                    <h3 class="font-semibold mb-2">Histograma</h3>
+                    <h3>Histograma</h3>
                     <img src="../analysis_results/histograma_BTCUSDT.png" alt="Histograma BTCUSDT">
-                </div>
-                <div class="col-span-2">
-                    <h3 class="font-semibold mb-2">Gráfico de Linha (Preço + Média + Mediana + Moda)</h3>
-                    <img src="../analysis_results/grafico_linha_BTCUSDT.png" alt="Gráfico de Linha BTCUSDT">
                 </div>
             </div>
 
-            <h3 class="font-semibold mt-8 mb-2">Métricas de Modelagem (por Fold)</h3>
-        <table border="1" class="dataframe table-auto border border-gray-300">
+            <div>
+                <h3>Gráfico de Linha (Preço + Média + Mediana + Moda)</h3>
+                <img src="../analysis_results/grafico_linha_BTCUSDT.png" alt="Gráfico de Linha BTCUSDT">
+            </div>
+
+            <div>
+                <h3>Lucro Simulado</h3>
+                <img src="../data/lucro_BTCUSDT.png" alt="Lucro BTCUSDT">
+            </div>
+
+            <h3>Métricas de Modelagem (por Fold)</h3>
+        <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th>MSE</th>
@@ -71,26 +86,32 @@
     </tr>
   </tbody>
 </table></section>
-        <section class="mb-16">
-            <h2 class="text-2xl font-semibold mb-4">ETHUSDT</h2>
+        <section>
+            <h2>ETHUSDT</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                 <div>
-                    <h3 class="font-semibold mb-2">Boxplot</h3>
+                    <h3>Boxplot</h3>
                     <img src="../analysis_results/boxplot_ETHUSDT.png" alt="Boxplot ETHUSDT">
                 </div>
                 <div>
-                    <h3 class="font-semibold mb-2">Histograma</h3>
+                    <h3>Histograma</h3>
                     <img src="../analysis_results/histograma_ETHUSDT.png" alt="Histograma ETHUSDT">
-                </div>
-                <div class="col-span-2">
-                    <h3 class="font-semibold mb-2">Gráfico de Linha (Preço + Média + Mediana + Moda)</h3>
-                    <img src="../analysis_results/grafico_linha_ETHUSDT.png" alt="Gráfico de Linha ETHUSDT">
                 </div>
             </div>
 
-            <h3 class="font-semibold mt-8 mb-2">Métricas de Modelagem (por Fold)</h3>
-        <table border="1" class="dataframe table-auto border border-gray-300">
+            <div>
+                <h3>Gráfico de Linha (Preço + Média + Mediana + Moda)</h3>
+                <img src="../analysis_results/grafico_linha_ETHUSDT.png" alt="Gráfico de Linha ETHUSDT">
+            </div>
+
+            <div>
+                <h3>Lucro Simulado</h3>
+                <img src="../data/lucro_ETHUSDT.png" alt="Lucro ETHUSDT">
+            </div>
+
+            <h3>Métricas de Modelagem (por Fold)</h3>
+        <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th>MSE</th>
@@ -132,26 +153,32 @@
     </tr>
   </tbody>
 </table></section>
-        <section class="mb-16">
-            <h2 class="text-2xl font-semibold mb-4">DOGEUSDT</h2>
+        <section>
+            <h2>DOGEUSDT</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                 <div>
-                    <h3 class="font-semibold mb-2">Boxplot</h3>
+                    <h3>Boxplot</h3>
                     <img src="../analysis_results/boxplot_DOGEUSDT.png" alt="Boxplot DOGEUSDT">
                 </div>
                 <div>
-                    <h3 class="font-semibold mb-2">Histograma</h3>
+                    <h3>Histograma</h3>
                     <img src="../analysis_results/histograma_DOGEUSDT.png" alt="Histograma DOGEUSDT">
-                </div>
-                <div class="col-span-2">
-                    <h3 class="font-semibold mb-2">Gráfico de Linha (Preço + Média + Mediana + Moda)</h3>
-                    <img src="../analysis_results/grafico_linha_DOGEUSDT.png" alt="Gráfico de Linha DOGEUSDT">
                 </div>
             </div>
 
-            <h3 class="font-semibold mt-8 mb-2">Métricas de Modelagem (por Fold)</h3>
-        <table border="1" class="dataframe table-auto border border-gray-300">
+            <div>
+                <h3>Gráfico de Linha (Preço + Média + Mediana + Moda)</h3>
+                <img src="../analysis_results/grafico_linha_DOGEUSDT.png" alt="Gráfico de Linha DOGEUSDT">
+            </div>
+
+            <div>
+                <h3>Lucro Simulado</h3>
+                <img src="../data/lucro_DOGEUSDT.png" alt="Lucro DOGEUSDT">
+            </div>
+
+            <h3>Métricas de Modelagem (por Fold)</h3>
+        <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th>MSE</th>
@@ -193,26 +220,32 @@
     </tr>
   </tbody>
 </table></section>
-        <section class="mb-16">
-            <h2 class="text-2xl font-semibold mb-4">ADAUSDT</h2>
+        <section>
+            <h2>ADAUSDT</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                 <div>
-                    <h3 class="font-semibold mb-2">Boxplot</h3>
+                    <h3>Boxplot</h3>
                     <img src="../analysis_results/boxplot_ADAUSDT.png" alt="Boxplot ADAUSDT">
                 </div>
                 <div>
-                    <h3 class="font-semibold mb-2">Histograma</h3>
+                    <h3>Histograma</h3>
                     <img src="../analysis_results/histograma_ADAUSDT.png" alt="Histograma ADAUSDT">
-                </div>
-                <div class="col-span-2">
-                    <h3 class="font-semibold mb-2">Gráfico de Linha (Preço + Média + Mediana + Moda)</h3>
-                    <img src="../analysis_results/grafico_linha_ADAUSDT.png" alt="Gráfico de Linha ADAUSDT">
                 </div>
             </div>
 
-            <h3 class="font-semibold mt-8 mb-2">Métricas de Modelagem (por Fold)</h3>
-        <table border="1" class="dataframe table-auto border border-gray-300">
+            <div>
+                <h3>Gráfico de Linha (Preço + Média + Mediana + Moda)</h3>
+                <img src="../analysis_results/grafico_linha_ADAUSDT.png" alt="Gráfico de Linha ADAUSDT">
+            </div>
+
+            <div>
+                <h3>Lucro Simulado</h3>
+                <img src="../data/lucro_ADAUSDT.png" alt="Lucro ADAUSDT">
+            </div>
+
+            <h3>Métricas de Modelagem (por Fold)</h3>
+        <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th>MSE</th>
@@ -254,7 +287,6 @@
     </tr>
   </tbody>
 </table></section>
-        </div>
     </body>
     </html>
     

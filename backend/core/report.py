@@ -2,6 +2,7 @@ import os
 import webbrowser
 import pandas as pd
 
+
 def generate_html_report(crypto_list, save_dir="backend/reports"):
     """Gera um relatório HTML com os gráficos e métricas."""
     os.makedirs(save_dir, exist_ok=True)
@@ -12,47 +13,61 @@ def generate_html_report(crypto_list, save_dir="backend/reports"):
     <head>
         <meta charset="UTF-8">
         <title>Relatório de Análise de Criptomoedas</title>
-        <link rel="stylesheet" href="tailwind.min.css">
+        <style>
+            body { font-family: sans-serif; background-color: #f7fafc; color: #1a202c; margin: 0; padding: 2rem; }
+            h1 { font-size: 2rem; font-weight: bold; margin-bottom: 2rem; }
+            h2 { font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem; }
+            h3 { font-weight: bold; margin-top: 1rem; }
+            table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+            th, td { border: 1px solid #cbd5e0; padding: 0.5rem; text-align: center; }
+            th { background-color: #edf2f7; }
+            img { max-width: 100%; height: auto; border: 1px solid #e2e8f0; margin-top: 0.5rem; }
+            section { margin-bottom: 4rem; }
+        </style>
     </head>
-    <body class="bg-gray-100 text-gray-900">
-        <div class="max-w-6xl mx-auto p-8">
-            <h1 class="text-4xl font-bold mb-8">📊 Relatório de Análise de Criptomoedas</h1>
+    <body>
+        <h1>📊 Relatório de Análise de Criptomoedas</h1>
     """
 
     for symbol in crypto_list:
         html += f"""
-        <section class="mb-16">
-            <h2 class="text-2xl font-semibold mb-4">{symbol}</h2>
+        <section>
+            <h2>{symbol}</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                 <div>
-                    <h3 class="font-semibold mb-2">Boxplot</h3>
+                    <h3>Boxplot</h3>
                     <img src="../analysis_results/boxplot_{symbol}.png" alt="Boxplot {symbol}">
                 </div>
                 <div>
-                    <h3 class="font-semibold mb-2">Histograma</h3>
+                    <h3>Histograma</h3>
                     <img src="../analysis_results/histograma_{symbol}.png" alt="Histograma {symbol}">
-                </div>
-                <div class="col-span-2">
-                    <h3 class="font-semibold mb-2">Gráfico de Linha (Preço + Média + Mediana + Moda)</h3>
-                    <img src="../analysis_results/grafico_linha_{symbol}.png" alt="Gráfico de Linha {symbol}">
                 </div>
             </div>
 
-            <h3 class="font-semibold mt-8 mb-2">Métricas de Modelagem (por Fold)</h3>
+            <div>
+                <h3>Gráfico de Linha (Preço + Média + Mediana + Moda)</h3>
+                <img src="../analysis_results/grafico_linha_{symbol}.png" alt="Gráfico de Linha {symbol}">
+            </div>
+
+            <div>
+                <h3>Lucro Simulado</h3>
+                <img src="../data/lucro_{symbol}.png" alt="Lucro {symbol}">
+            </div>
+
+            <h3>Métricas de Modelagem (por Fold)</h3>
         """
 
         metrics_path = f"backend/data/metrics_{symbol}.csv"
         if os.path.exists(metrics_path):
             df = pd.read_csv(metrics_path)
-            html += df.to_html(classes="table-auto border border-gray-300", index=False)
+            html += df.to_html(index=False)
         else:
-            html += "<p class='text-red-500'>Métricas não encontradas para esta moeda.</p>"
+            html += "<p style='color: red;'>Métricas não encontradas para esta moeda.</p>"
 
         html += "</section>"
 
     html += """
-        </div>
     </body>
     </html>
     """
@@ -62,5 +77,4 @@ def generate_html_report(crypto_list, save_dir="backend/reports"):
         f.write(html)
 
     print(f"Relatório HTML gerado em: {report_path}")
-
     webbrowser.open(f"file://{os.path.abspath(report_path)}")

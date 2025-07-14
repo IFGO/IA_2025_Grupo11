@@ -20,7 +20,9 @@ def evaluate_model(y_true, y_pred) -> dict:
     }
 
 
-def train_and_evaluate_model(features_df: pd.DataFrame, model_type: str = "mlp", kfolds: int = 5) -> pd.DataFrame:
+def train_and_evaluate_model(
+    features_df: pd.DataFrame, model_type: str = "mlp", kfolds: int = 5, return_predictions: bool = False
+) -> pd.DataFrame | tuple[pd.DataFrame, pd.DataFrame]:
     """
     Treina e avalia o modelo de previsão.
 
@@ -28,9 +30,10 @@ def train_and_evaluate_model(features_df: pd.DataFrame, model_type: str = "mlp",
         features_df: DataFrame com features + coluna 'target'.
         model_type: Tipo do modelo ('mlp', 'linear', 'poly').
         kfolds: Número de folds para validação cruzada.
+        return_predictions: Se True, retorna o features_df com coluna 'predicted'.
 
     Returns:
-        DataFrame com resultados por fold.
+        DataFrame com resultados por fold ou (results_df, features_df) com previsões.
     """
     logger.info(f"Treinando o modelo {model_type}")
 
@@ -64,4 +67,18 @@ def train_and_evaluate_model(features_df: pd.DataFrame, model_type: str = "mlp",
 
     results_df = pd.DataFrame(results)
     logger.info(f"Resultados médios:\n{results_df.mean()}")
+
+    if return_predictions:
+        # Treina no dataset todo para gerar previsões para simular o lucro
+        if model_type == "mlp":
+            model = MLPRegressor(hidden_layer_sizes=(64, 32), max_iter=1000, random_state=42)
+        elif model_type == "linear":
+            model = LinearRegression()
+        elif model_type == "poly":
+            model = make_pipeline(PolynomialFeatures(degree=2), LinearRegression())
+        model.fit(X, y)
+        features_df["predicted"] = model.predict(X)
+
+        return results_df, features_df
+
     return results_df
