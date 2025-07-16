@@ -1,12 +1,13 @@
 import numpy as np
 import pandas as pd
 import logging
-from sklearn.model_selection import KFold
+from sklearn.model_selection import TimeSeriesSplit # Importante para séries temporais
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.neural_network import MLPRegressor
 from sklearn.linear_model import LinearRegression
-from sklearn.preprocessing import PolynomialFeatures
-from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import PolynomialFeatures, StandardScaler # Adicionado StandardScaler
+from sklearn.pipeline import Pipeline # Adicionado Pipeline
+from sklearn.ensemble import RandomForestRegressor # Novo modelo para experimentar
 
 logger = logging.getLogger(__name__)
 
@@ -28,7 +29,8 @@ def train_and_evaluate_model(
 
     Args:
         features_df: DataFrame com features + coluna 'target'.
-        model_type: Tipo do modelo ('mlp', 'linear', 'poly').
+                     As features devem ser numéricas e sem NaNs.
+        model_type: Tipo do modelo ('mlp', 'linear', 'poly', 'random_forest').
         kfolds: Número de folds para validação cruzada.
         return_predictions: Se True, retorna o features_df com coluna 'predicted'.
 
@@ -37,24 +39,57 @@ def train_and_evaluate_model(
     """
     logger.info(f"Treinando o modelo {model_type}")
 
-    X = features_df.drop(columns=["target"]).values
+    # Certifica-se de que a coluna 'Date' não é uma feature, se ela estiver presente
+    # e ainda não tiver sido removida pelo generate_features.
+    # Assumimos que generate_features já lida com colunas não numéricas se necessário.
+    feature_columns = [col for col in features_df.columns if col != "target"]
+    X = features_df[feature_columns].values
     y = features_df["target"].values
 
-    kf = KFold(n_splits=kfolds, shuffle=True, random_state=42)
+    # Validação cruzada para séries temporais
+    kf = TimeSeriesSplit(n_splits=kfolds)
     results = []
+    
+    # Lista para armazenar as previsões de teste em cada fold
+    # Isso será usado para construir 'features_df["predicted"]' de forma mais robusta
+    # sem re-treinar o modelo no dataset completo no final (que pode levar a overfitting
+    # na métrica reportada para o *pipeline* de lucro).
+    # Uma abordagem melhor é acumular as previsões out-of-sample da validação cruzada.
+    all_predictions = np.zeros_like(y, dtype=float)
+
 
     for fold, (train_index, test_index) in enumerate(kf.split(X)):
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
 
+        # Definição dos modelos dentro de Pipelines para incluir o StandardScaler
         if model_type == "mlp":
-            model = MLPRegressor(hidden_layer_sizes=(64, 32), max_iter=1000, random_state=42)
+            model = Pipeline([
+                ('scaler', StandardScaler()),
+                ('mlp', MLPRegressor(hidden_layer_sizes=(64, 32), max_iter=2000,
+                                     random_state=42, early_stopping=True, validation_fraction=0.1))
+            ])
         elif model_type == "linear":
-            model = LinearRegression()
+            # LinearRegression é menos sensível ao scaling, mas ainda pode se beneficiar
+            model = Pipeline([
+                ('scaler', StandardScaler()),
+                ('linear_reg', LinearRegression())
+            ])
         elif model_type == "poly":
-            model = make_pipeline(PolynomialFeatures(degree=2), LinearRegression())
+            # PolynomialFeatures e LinearRegression são sensíveis ao scaling
+            model = Pipeline([
+                ('scaler', StandardScaler()),
+                ('poly_features', PolynomialFeatures(degree=2, include_bias=False)), # include_bias=False para evitar colunas redundantes
+                ('linear_reg', LinearRegression())
+            ])
+        elif model_type == "random_forest":
+            # Random Forest é menos sensível ao scaling, mas mantemos para consistência e futuras transformações
+            model = Pipeline([
+                ('scaler', StandardScaler()), # StandardScaler ainda é útil se houver outras transformações na pipeline
+                ('rf', RandomForestRegressor(n_estimators=100, random_state=42, n_jobs=-1)) # n_jobs=-1 usa todos os cores
+            ])
         else:
-            raise ValueError(f"Modelo desconhecido: {model_type}")
+            raise ValueError(f"Modelo desconhecido: {model_type}. Escolha entre 'mlp', 'linear', 'poly', 'random_forest'.")
 
         model.fit(X_train, y_train)
         y_pred = model.predict(X_test)
@@ -65,19 +100,28 @@ def train_and_evaluate_model(
 
         logger.info(f"Fold {fold + 1}: {metrics}")
 
+        # Armazena as previsões do fold de teste
+        all_predictions[test_index] = y_pred
+
     results_df = pd.DataFrame(results)
-    logger.info(f"Resultados médios:\n{results_df.mean()}")
+    logger.info(f"Resultados médios da validação cruzada:\n{results_df.mean(numeric_only=True)}")
+
 
     if return_predictions:
-        # Treina no dataset todo para gerar previsões para simular o lucro
-        if model_type == "mlp":
-            model = MLPRegressor(hidden_layer_sizes=(64, 32), max_iter=1000, random_state=42)
-        elif model_type == "linear":
-            model = LinearRegression()
-        elif model_type == "poly":
-            model = make_pipeline(PolynomialFeatures(degree=2), LinearRegression())
-        model.fit(X, y)
-        features_df["predicted"] = model.predict(X)
+        # Usa as previsões out-of-sample da validação cruzada para o 'predicted'
+        # Isso reflete um desempenho mais realista do modelo em dados "não vistos" durante o treinamento.
+        # Note que as primeiras linhas (que não são usadas como teste em TimeSeriesSplit) terão previsão zero.
+        # Se precisar de previsão para todas as linhas, o modelo precisaria ser treinado no dataset completo *após* a validação.
+        # Para simulação de lucro, as previsões out-of-sample são mais relevantes.
+        features_df["predicted"] = all_predictions
+        
+        # Opcional: Treinar o modelo no conjunto completo para ter previsões em todo o dataset
+        # Isso pode ser útil para visualização, mas a simulação de lucro deve focar em previsões realistas.
+        # Se for para o lucro, o "all_predictions" da validação cruzada é o mais correto.
+        # Se você ainda quer o modelo treinado em tudo:
+        # final_model_for_full_data = model # Re-instancie o modelo ou use o último treinado
+        # final_model_for_full_data.fit(X, y)
+        # features_df["predicted_full_data"] = final_model_for_full_data.predict(X)
 
         return results_df, features_df
 
